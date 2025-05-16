@@ -1,7 +1,12 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-gray-800">OmniReview</h1>
+    <main className="flex flex-col">
+      <div className="flex justify-center">
+        <h1 className="text-4xl font-bold text-gray-800">omnireview</h1>
+      </div>
+      <div className="flex justify-center">
+        <h2 className="text-1xl font-bold text-gray-800">A simple review app</h2>
+      </div>
     </main>
   );
-}
+} 
