@@ -1,4 +1,4 @@
-export interface TMDBResult{
+/* export interface TMDBResult{
   id: number;
   title: string;
   release_date?: string;
@@ -16,4 +16,4 @@ export async function searchMovie(query: string): Promise<TMDBResult | null> {
   if (!res.ok) throw new Error('TMDB fetch error');
   const data = await res.json();
   return data.results?.[0] ?? null; // Return the first match or null
-}
+} */
