@@ -7,6 +7,12 @@ export default function Home() {
       <div className="flex justify-center">
         <h2 className="text-1xl font-bold text-gray-800">A simple review app</h2>
       </div>
+      <div id="movieInput" className="flex justify-center mt-4">
+        <input
+          type="text"
+          placeholder="Enter a movie name"
+        />
+      </div>
     </main>
   );
 } 
