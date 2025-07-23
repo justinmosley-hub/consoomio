@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '../../lib/supabaseClient';
 import Link from 'next/link';
@@ -64,35 +64,37 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">Reset Password</h1>
-      {error && (
-        <p className="mb-4 text-red-600">
-          {error}
-          {error.includes('reset link') && (
-            <>
-              {' '}
-              <Link href="/forgot-password" className="text-blue-600 underline">Request a new reset email</Link>
-            </>
-          )}
-        </p>
-      )}
-      {sessionReady && !message && !error && (
-        <form onSubmit={handleSubmit} className="w-full max-w-sm p-4 border rounded shadow bg-white">
-          <label className="block mb-2 font-semibold">New Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            className="w-full mb-4 p-2 border rounded"
-            required
-          />
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded" disabled={loading}>
-            {loading ? 'Updating...' : 'Update Password'}
-          </button>
-        </form>
-      )}
-      {message && <p className="mt-4 text-green-600">{message} <Link href="/login" className="text-blue-600 underline">Login</Link></p>}
-    </main>
+    <Suspense>
+      <main className="flex flex-col items-center justify-center min-h-screen">
+        <h1 className="text-3xl font-bold mb-4">Reset Password</h1>
+        {error && (
+          <p className="mb-4 text-red-600">
+            {error}
+            {error.includes('reset link') && (
+              <>
+                {' '}
+                <Link href="/forgot-password" className="text-blue-600 underline">Request a new reset email</Link>
+              </>
+            )}
+          </p>
+        )}
+        {sessionReady && !message && !error && (
+          <form onSubmit={handleSubmit} className="w-full max-w-sm p-4 border rounded shadow bg-white">
+            <label className="block mb-2 font-semibold">New Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              className="w-full mb-4 p-2 border rounded"
+              required
+            />
+            <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded" disabled={loading}>
+              {loading ? 'Updating...' : 'Update Password'}
+            </button>
+          </form>
+        )}
+        {message && <p className="mt-4 text-green-600">{message} <Link href="/login" className="text-blue-600 underline">Login</Link></p>}
+      </main>
+    </Suspense>
   );
 } 
