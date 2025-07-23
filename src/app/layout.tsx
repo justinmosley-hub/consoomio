@@ -3,8 +3,8 @@ import { ReactNode } from 'react';
 import Header from '../components/Header';
 
 export const metadata = {
-  title: 'OmniReview',
-  description: 'All your media in one place.',
+  title: 'consoom.io',
+  description: 'Consoom, review, and share media.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

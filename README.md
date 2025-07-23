@@ -1,7 +1,7 @@
-# OmniReview
+# consoom.io
 
-A unified platform for reviewing and organizing movies, TV shows, books, and music all in one place.
-www.omnireview.io
+Consoom media.
+www.consoom.io
 
 ## Features
 

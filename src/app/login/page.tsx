@@ -10,6 +10,9 @@ export default function LoginPage() {
         Don&apos;t have an account?{' '}
         <Link href="/signup" className="text-blue-600 hover:underline">Sign Up</Link>
       </p>
+      <p className="mt-2">
+        <Link href="/forgot-password" className="text-sm text-blue-500 hover:underline">Forgot password?</Link>
+      </p>
     </main>
   );
 } 

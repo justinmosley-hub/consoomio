@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
+import type { AuthUser } from '@supabase/supabase-js';
 
 interface AuthProps {
   mode?: 'signin' | 'signup' | 'both';
@@ -10,7 +11,7 @@ interface AuthProps {
 export default function Auth({ mode = 'both' }: AuthProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
